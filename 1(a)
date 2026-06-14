@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alert Example</title>
+</head>
+<body>
+
+<script>
+    // This will display a message box
+    alert("Hello World!");
+</script>
+
+</body>
+</html>
