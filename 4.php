@@ -1,0 +1,10 @@
+<?php
+$colors = array("White", "Black", "Blue", "Green");
+
+echo "Colors are:<br>";
+
+foreach ($colors as $color)
+{
+    echo $color . "<br>";
+}
+?>
