@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+        jQuery Form Validation
+    </title>
+
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js">
+    </script>
+
+</head>
+
+<body>
+
+    <h2>
+        Student Registration
+    </h2>
+
+    <form id="registrationForm">
+
+        <label>
+            Name:
+        </label>
+
+        <input
+            type="text"
+            id="name"
+            value="Suprim Maharjan"
+        >
+
+        <br><br>
+
+        <label>
+            Email:
+        </label>
+
+        <input
+            type="text"
+            id="email"
+        >
+
+        <br><br>
+
+        <label>
+            Phone:
+        </label>
+
+        <input
+            type="text"
+            id="phone"
+        >
+
+        <br><br>
+
+        <label>
+            Password:
+        </label>
+
+        <input
+            type="password"
+            id="password"
+        >
+
+        <br><br>
+
+        <label>
+            Confirm Password:
+        </label>
+
+        <input
+            type="password"
+            id="confirmPassword"
+        >
+
+        <br><br>
+
+        <button type="submit">
+            Register
+        </button>
+
+    </form>
+
+    <br>
+
+    <div id="response"></div>
+
+    <script>
+
+        $(document).ready(
+            function()
+            {
+
+                $("#registrationForm").submit(
+                    function(event)
+                    {
+
+                        event.preventDefault();
+
+                        let name =
+                            $("#name")
+                            .val()
+                            .trim();
+
+                        let email =
+                            $("#email")
+                            .val()
+                            .trim();
+
+                        let phone =
+                            $("#phone")
+                            .val()
+                            .trim();
+
+                        let password =
+                            $("#password")
+                            .val();
+
+                        let confirmPassword =
+                            $("#confirmPassword")
+                            .val();
+
+
+                        let emailPattern =
+                            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                        if (name == "")
+                        {
+
+                            $("#response").html(
+                                "<span style='color:red'>" +
+                                "Name is required." +
+                                "</span>"
+                            );
+
+                            return;
+
+                        }
+
+
+                        if (
+                            !emailPattern.test(email)
+                        )
+                        {
+
+                            $("#response").html(
+                                "<span style='color:red'>" +
+                                "Enter a valid email." +
+                                "</span>"
+                            );
+
+                            return;
+
+                        }
+
+
+                        if (
+                            !/^[0-9]{10}$/.test(phone)
+                        )
+                        {
+
+                            $("#response").html(
+                                "<span style='color:red'>" +
+                                "Enter a valid 10-digit phone number." +
+                                "</span>"
+                            );
+
+                            return;
+
+                        }
+
+
+                        if (password.length < 6)
+                        {
+
+                            $("#response").html(
+                                "<span style='color:red'>" +
+                                "Password must contain at least 6 characters." +
+                                "</span>"
+                            );
+
+                            return;
+
+                        }
+
+
+                        if (
+                            password !=
+                            confirmPassword
+                        )
+                        {
+
+                            $("#response").html(
+                                "<span style='color:red'>" +
+                                "Passwords do not match." +
+                                "</span>"
+                            );
+
+                            return;
+
+                        }
+
+
+                        $.ajax(
+                        {
+
+                            url: "register.php",
+
+                            type: "POST",
+
+                            data:
+                            {
+                                name: name,
+
+                                email: email,
+
+                                phone: phone,
+
+                                password: password
+                            },
+
+                            success:
+                            function(response)
+                            {
+
+                                $("#response")
+                                .html(response);
+
+                            },
+
+                            error:
+                            function()
+                            {
+
+                                $("#response").html(
+                                    "<span style='color:red'>" +
+                                    "Server error occurred." +
+                                    "</span>"
+                                );
+
+                            }
+
+                        });
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
