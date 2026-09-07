@@ -1,0 +1,10 @@
+<?php
+function add($a, $b)
+{
+    return $a + $b;
+}
+
+$result = add(12, 05);
+
+echo "Sum = ".$result;
+?>
