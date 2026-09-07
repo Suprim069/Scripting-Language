@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookie Demo</title>
+</head>
+<body>
+
+    <h2>JavaScript Cookie Example</h2>
+    <button onclick="setCookie()">Enter Your Name</button>
+    <p id="output"></p>
+
+    <script>
+        function setCookie() {
+            let username = prompt("Enter your name:");
+            document.cookie = "user=" + username;
+            document.getElementById("output").innerHTML =
+                "Name stored in cookie successfully.";
+        }
+
+        function getCookie() {
+            let cookieData = document.cookie;
+
+            if (cookieData !== "") {
+                let name = cookieData.split("=")[1];
+                document.getElementById("output").innerHTML =
+                    "Welcome back, " + name;
+            }
+        }
+
+        window.onload = getCookie;
+    </script>
+
+</body>
+</html>
