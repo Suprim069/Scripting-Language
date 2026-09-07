@@ -6,7 +6,7 @@
 <body>
 
 <script>
-let a = [2,19,37,48,45,94,12,23,78];
+let a = [3,29,37,28,25,84,12,21,70];
 
 let smallest = a[0];
 let largest = a[0];
