@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+let a = [2,4,0,1,7,9,0,1,1,0];
+
+let count = a.reduce((total,num) => {
+    return num === 0 ? total + 1 : total;
+}, 0);
+
+document.write("Total number of zeros: " + count);
+</script>
+
+</body>
+</html>
