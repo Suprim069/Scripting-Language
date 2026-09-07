@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+        jQuery Events and Effects
+    </title>
+
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js">
+    </script>
+
+</head>
+
+<body>
+
+    <h2>
+        jQuery Events and Effects
+    </h2>
+
+    <p>
+        Student Name: Suprim Maharjan
+    </p>
+
+    <button id="clickBtn">
+        Click Me
+    </button>
+
+    <br><br>
+
+    <button id="doubleBtn">
+        Double Click Me
+    </button>
+
+    <br><br>
+
+    <div
+        id="box"
+        style="
+        width:250px;
+        padding:30px;
+        background-color:lightblue;
+        text-align:center;
+        "
+    >
+
+        Move your mouse here
+
+    </div>
+
+    <br>
+
+    <input
+        type="text"
+        id="inputBox"
+        placeholder="Type something"
+    >
+
+    <p id="output"></p>
+
+    <hr>
+
+    <h3>
+        jQuery Effects
+    </h3>
+
+    <button id="hideBtn">
+        Hide
+    </button>
+
+    <button id="showBtn">
+        Show
+    </button>
+
+    <button id="toggleBtn">
+        Toggle
+    </button>
+
+    <button id="fadeInBtn">
+        Fade In
+    </button>
+
+    <button id="fadeOutBtn">
+        Fade Out
+    </button>
+
+    <button id="slideBtn">
+        Slide Toggle
+    </button>
+
+    <br><br>
+
+    <div
+        id="slideBox"
+        style="
+        background-color:lightgreen;
+        padding:20px;
+        width:250px;
+        "
+    >
+
+        This is the sliding content.
+
+    </div>
+
+    <script>
+
+        $(document).ready(
+            function()
+            {
+
+                $("#clickBtn").click(
+                    function()
+                    {
+
+                        alert(
+                            "Button clicked!"
+                        );
+
+                    }
+                );
+
+
+                $("#doubleBtn").dblclick(
+                    function()
+                    {
+
+                        alert(
+                            "Button double clicked!"
+                        );
+
+                    }
+                );
+
+
+                $("#box").mouseenter(
+                    function()
+                    {
+
+                        $(this).css(
+                            "background-color",
+                            "yellow"
+                        );
+
+                        $(this).text(
+                            "Mouse entered!"
+                        );
+
+                    }
+                );
+
+
+                $("#inputBox").keyup(
+                    function()
+                    {
+
+                        $("#output").text(
+                            "You typed: " +
+                            $(this).val()
+                        );
+
+                    }
+                );
+
+
+                $("#hideBtn").click(
+                    function()
+                    {
+
+                        $("#box").hide();
+
+                    }
+                );
+
+
+                $("#showBtn").click(
+                    function()
+                    {
+
+                        $("#box").show();
+
+                    }
+                );
+
+
+                $("#toggleBtn").click(
+                    function()
+                    {
+
+                        $("#box").toggle();
+
+                    }
+                );
+
+
+                $("#fadeInBtn").click(
+                    function()
+                    {
+
+                        $("#box").fadeIn();
+
+                    }
+                );
+
+
+                $("#fadeOutBtn").click(
+                    function()
+                    {
+
+                        $("#box").fadeOut();
+
+                    }
+                );
+
+
+                $("#slideBtn").click(
+                    function()
+                    {
+
+                        $("#slideBox").slideToggle();
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
